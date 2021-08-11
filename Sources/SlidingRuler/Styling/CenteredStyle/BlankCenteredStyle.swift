@@ -30,7 +30,7 @@
 import SwiftUI
 
 public struct BlankCenteredSlidingRulerStyle: SlidingRulerStyle {
-    public let cursorAlignment: VerticalAlignment = .top
+    public let cursorAlignment: VerticalAlignment = .center
     
     public init() {}
     

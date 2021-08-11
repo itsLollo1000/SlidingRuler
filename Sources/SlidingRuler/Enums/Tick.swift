@@ -27,7 +27,7 @@
 //
 
 public enum Mark {
-    case none, unit, half, fraction
+    case none, unit, half, fraction, hundredth
 }
 
 public enum Tick {

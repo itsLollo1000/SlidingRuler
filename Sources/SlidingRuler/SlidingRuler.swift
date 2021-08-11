@@ -338,6 +338,7 @@ extension SlidingRuler {
         case .unit: t = step
         case .half: t = step / 2
         case .fraction: t = step / CGFloat(fractions)
+        case .hundredth: t = cellWidth / CGFloat(fractions * 5)
         default: fatalError()
         }
 
@@ -526,6 +527,7 @@ extension SlidingRuler {
         case .unit: t = cellWidth
         case .half: t = hasHalf ? cellWidth / 2 : cellWidth
         case .fraction: t = cellWidth / CGFloat(fractions)
+        case .hundredth: t = cellWidth / CGFloat(fractions * 5)
         case .none: return
         }
         
