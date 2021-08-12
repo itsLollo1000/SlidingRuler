@@ -32,7 +32,7 @@ public struct NativeCursorBody: View {
     public var body: some View {
         Capsule()
             .foregroundColor(Color(red: 255/255, green: 45/255, blue: 85/255))
-            .frame(width: 2, height: 24)
+            .frame(width: UIScreen.main.scale == 3 ? 1.8 : 2.0, height: 24)
     }
 }
 
