@@ -175,7 +175,7 @@ public struct SlidingRuler<V>: View where V: BinaryFloatingPoint, V.Stride: Bina
 
         switch self.state {
         case .flicking, .springing:
-            if self.value != self.lastValueSet {
+            if abs(self.value - self.lastValueSet) > 0.0001 {
                 self.animationTimer?.cancel()
                 NextLoop { self.state = .idle }
                 value = clampedValue ?? 0
