@@ -28,7 +28,6 @@
 
 
 import SwiftUI
-import SmoothOperators
 
 @available(iOS 13.0, *)
 public struct SlidingRuler<V>: View where V: BinaryFloatingPoint, V.Stride: BinaryFloatingPoint {

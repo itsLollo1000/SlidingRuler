@@ -28,7 +28,6 @@
 
 
 import SwiftUI
-import SmoothOperators
 
 protocol NativeRulerCellView: RulerCellView { }
 extension NativeRulerCellView {

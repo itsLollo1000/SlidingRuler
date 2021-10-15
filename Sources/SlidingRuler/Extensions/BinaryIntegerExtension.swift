@@ -26,7 +26,7 @@
 //  SOFTWARE.
 //
 
-import SmoothOperators
+import Foundation
 
 extension BinaryInteger {
     @inlinable var isEven: Bool { self.isMultiple(of: 2) }
@@ -36,4 +36,42 @@ extension BinaryInteger {
     
     @inlinable func nextEven() -> Self { isEven ? self : self+ }
     @inlinable func previousEven() -> Self { isEven ? self : self- }
+    
+    /// The numerical value considered as expressed in radians converted in degrees.
+    @inlinable
+    public var degree: CGFloat {
+        return CGFloat(self) * degreeFactor
+    }
+    
+    /// The numerical value considered as expressed in degrees converted in radians.
+    @inlinable
+    public var radian: CGFloat {
+        return CGFloat(self) * radianFactor
+    }
+    
+    /// Considers a value as an angle expressed in degrees and returns the corresponding angle in radians.
+    ///
+    /// - note: _x_`º` is equivalent to _x_`.degree`.
+    /// - Parameter lhs: The angle value expressed in degrees.
+    /// - Returns: The angle value expressed in radians.
+    @inlinable
+    public static postfix func ° (lhs: Self) -> CGFloat {
+        return lhs.radian
+    }
+    
+    /// Returns the exponentiation of `lhs` by `rhs`.
+    /// - Parameter lhs: The value to exponentiate.
+    /// - Parameter rhs: The exponent.
+    @inlinable
+    static func **<T: BinaryInteger>(lhs: Self, rhs: T) -> Self {
+        return Self(pow(CGFloat(lhs), CGFloat(rhs)))
+    }
+    
+    /// Returns the exponentiation of `lhs` by `rhs`.
+    /// - Parameter lhs: The value to exponentiate.
+    /// - Parameter rhs: The exponent.
+    @inlinable
+    static func **<T: BinaryFloatingPoint>(lhs: Self, rhs: T) -> Self {
+        return Self(pow(CGFloat(lhs), CGFloat(rhs)))
+    }
 }
