@@ -38,6 +38,7 @@ public protocol RulerCellView: FractionableView, Equatable {
     var cellBounds: ClosedRange<CGFloat> { get }
     var step: CGFloat { get }
     var cellWidth: CGFloat { get }
+    var isInactiveScaleHidden: Bool { get }
 
     var scale: Scale { get }
     var maskShape: MaskShape { get }
@@ -60,7 +61,7 @@ extension RulerCellView {
                 .clipShape(maskShape)
             scale
                 .equatable()
-                .foregroundColor(.init(.tertiaryLabel))
+                .foregroundColor(isInactiveScaleHidden ? .clear : .init(.tertiaryLabel))
         }
         .frame(width: cellWidth)
     }

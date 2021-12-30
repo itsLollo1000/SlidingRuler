@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ZMSlidingRuler'
-  s.version          = '0.2.6'
+  s.version          = '0.2.7'
   s.summary          = 'SlidingRuler'
   s.homepage         = 'https://github.com/githubzephyrmobile/SlidingRuler'
   s.license          = { 'type' => 'Commercial', 'text' => 'Zephyrmobile internal use only.' }

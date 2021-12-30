@@ -31,14 +31,18 @@ import SwiftUI
 
 public struct BlankCenteredSlidingRulerStyle: SlidingRulerStyle {
     public let cursorAlignment: VerticalAlignment = .center
+    private let isInactiveScaleHidden: Bool
     
-    public init() {}
+    public init(_ isInactiveScaleHidden: Bool = false) {
+        self.isInactiveScaleHidden = isInactiveScaleHidden
+    }
     
     public func makeCellBody(configuration: SlidingRulerStyleConfiguation) -> some FractionableView {
         BlankCenteredCellBody(mark: configuration.mark,
                               bounds: configuration.bounds,
                               step: configuration.step,
-                              cellWidth: cellWidth)
+                              cellWidth: cellWidth,
+                              isInactiveScaleHidden: isInactiveScaleHidden)
     }
 
     public func makeCursorBody() -> some View {
