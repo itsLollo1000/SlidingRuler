@@ -149,7 +149,6 @@ public struct SlidingRuler<V>: View where V: BinaryFloatingPoint, V.Stride: Bina
             ZStack(alignment: .init(horizontal: .center, vertical: self.verticalCursorAlignment)) {
                 Ruler(cells: self.cells, step: self.step, markOffset: self.markOffset, bounds: self.bounds, formatter: self.formatter)
                     .equatable()
-                    .animation(nil)
                     .modifier(InfiniteOffsetEffect(offset: renderedOffset, maxOffset: self.cellWidthOverflow))
                 self.style.makeCursorBody()
             }
@@ -159,9 +158,6 @@ public struct SlidingRuler<V>: View where V: BinaryFloatingPoint, V.Stride: Bina
         .onPreferenceChange(MarkOffsetPreferenceKey.self, storeValueIn: $markOffset)
         .onPreferenceChange(ControlWidthPreferenceKey.self, storeValueIn: $controlWidth) {
             self.updateCellsIfNeeded()
-        }
-        .transaction {
-            if $0.animation != nil { $0.animation = .easeIn(duration: 0.1) }
         }
         .onHorizontalDragGesture(initialTouch: firstTouchHappened,
                                  prematureEnd: panGestureEndedPrematurely,
