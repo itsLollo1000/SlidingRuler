@@ -43,7 +43,6 @@ struct Ruler: View, Equatable {
                 self.style.makeCellBody(configuration: self.configuration(forCell: cell))
             }
         }
-        .animation(nil)
     }
     
     private func configuration(forCell cell: RulerCell) -> SlidingRulerStyleConfiguation {
